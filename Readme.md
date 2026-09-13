@@ -1,4 +1,3 @@
-![Logo](https://placehold.co/600x150/EEE/757D6F?text=SmuFuzz+Project\n+600x150&font=raleway)
 
 # SmuFuzz: Deep System Management Mode Fuzzing in UEFI Runtime
 
