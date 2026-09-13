@@ -1,0 +1,10 @@
+{
+    "status": "LOCKED",
+    "lock_timestamp": 1787713549.5960176,
+    "total_active_handlers": 136,
+    "protected_memory_region": {
+        "SMRAM_BASE": "0x7A000000",
+        "SMRAM_SIZE": "32MB"
+    },
+    "phase2_state": "SUCCESSFUL"
+}

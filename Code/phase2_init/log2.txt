@@ -1,0 +1,561 @@
+mmsh@mmsh:~/Downloads$ sudo apt  install curl 
+[sudo] password for mmsh: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libfwupd2 libgl1-amber-dri libglapi-mesa libwoff1
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libcurl3t64-gnutls libcurl4t64
+The following NEW packages will be installed:
+  curl
+The following packages will be upgraded:
+  libcurl3t64-gnutls libcurl4t64
+2 upgraded, 1 newly installed, 0 to remove and 37 not upgraded.
+Need to get 226 kB/904 kB of archives.
+After this operation, 538 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 curl amd64 8.5.0-2ubuntu10.13 [226 kB]
+Fetched 226 kB in 1s (221 kB/s)
+(Reading database ... 246845 files and directories currently installed.)
+Preparing to unpack .../libcurl4t64_8.5.0-2ubuntu10.13_amd64.deb ...
+Unpacking libcurl4t64:amd64 (8.5.0-2ubuntu10.13) over (8.5.0-2ubuntu10.11) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_8.5.0-2ubuntu10.13_amd64.deb ...
+Unpacking curl (8.5.0-2ubuntu10.13) ...
+Preparing to unpack .../libcurl3t64-gnutls_8.5.0-2ubuntu10.13_amd64.deb ...
+Unpacking libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.13) over (8.5.0-2ubuntu10.11
+) ...
+Setting up libcurl4t64:amd64 (8.5.0-2ubuntu10.13) ...
+Setting up libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.13) ...
+Setting up curl (8.5.0-2ubuntu10.13) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+mmsh@mmsh:~/Downloads$ # ۱. نصب محیط و کامپایلر Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source "$HOME/.cargo/env"
+
+# ۲. نصب بسته‌ها و کتابخانه‌های توسعه شبیه‌ساز QEMU
+sudo apt update
+sudo apt install -y ninja-build libglib2.0-dev libpixman-1-dev bison flex libslirp-dev pkg-config clang llvm
+info: downloading installer
+warn: It looks like you have an existing rustup settings file at:
+warn: /home/mmsh/.rustup/settings.toml
+warn: Rustup will install the default toolchain as specified in the settings file,
+warn: instead of the one inferred from the default host triple.
+info: profile set to default
+info: default host triple is x86_64-unknown-linux-gnu
+info: syncing channel updates for stable-x86_64-unknown-linux-gnu
+info: latest update on 2026-08-20 for version 1.98.0 (88d9e12ae 2026-08-18)
+info: downloading 6 components
+        cargo installed                       11.13 MiB
+       clippy installed                        5.13 MiB
+    rust-docs installed                       23.00 MiB
+     rust-std installed                       29.29 MiB
+        rustc installed                       76.05 MiB
+      rustfmt installed                        2.37 MiB                         info: default toolchain set to stable-x86_64-unknown-linux-gnu
+
+  stable-x86_64-unknown-linux-gnu installed - rustc 1.98.0 (88d9e12ae 2026-08-18)
+
+
+Rust is installed now. Great!
+
+To get started you may need to restart your current shell.
+This would reload your PATH environment variable to include
+Cargo's bin directory ($HOME/.cargo/bin).
+
+To configure your current shell, you need to source
+the corresponding env file under $HOME/.cargo.
+
+This is usually done by running one of the following (note the leading DOT):
+. "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+source "$HOME/.cargo/env.fish"  # For fish
+source "~/.cargo/env.nu"  # For nushell
+source "$HOME/.cargo/env.tcsh"  # For tcsh
+. "$HOME/.cargo/env.ps1"        # For pwsh
+source "$HOME/.cargo/env.xsh"   # For xonsh
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Hit:3 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main i386 Packages [536 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,229 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,688 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-updates/universe i386 Packages [1,141 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [337 kB]
+Fetched 5,058 kB in 3s (1,517 kB/s)                             
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+46 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+pkg-config is already the newest version (1.8.1-2build1).
+pkg-config set to manually installed.
+The following packages were automatically installed and are no longer required:
+  libfwupd2 libgl1-amber-dri libglapi-mesa libwoff1
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  clang-18 icu-devtools lib32gcc-s1 lib32stdc++6 libblkid-dev libc6-i386
+  libclang-common-18-dev libclang-rt-18-dev libffi-dev libfl-dev libfl2 libgc1
+  libgirepository-2.0-0 libglib2.0-dev-bin libicu-dev libmount-dev
+  libncurses-dev libobjc-13-dev libobjc4 libpcre2-dev libpcre2-posix3 libpfm4
+  libselinux1-dev libsepol-dev libslirp0 libxml2-dev libz3-4 libz3-dev llvm-18
+  llvm-18-dev llvm-18-linker-tools llvm-18-runtime llvm-18-tools llvm-runtime
+  m4 python3-packaging uuid-dev
+Suggested packages:
+  bison-doc clang-18-doc wasi-libc flex-doc gir1.2-glib-2.0-dev libglib2.0-doc
+  libxml2-utils icu-doc ncurses-doc llvm-18-doc m4-doc
+The following NEW packages will be installed:
+  bison clang clang-18 flex icu-devtools lib32gcc-s1 lib32stdc++6 libblkid-dev
+  libc6-i386 libclang-common-18-dev libclang-rt-18-dev libffi-dev libfl-dev
+  libfl2 libgc1 libgirepository-2.0-0 libglib2.0-dev libglib2.0-dev-bin
+  libicu-dev libmount-dev libncurses-dev libobjc-13-dev libobjc4 libpcre2-dev
+  libpcre2-posix3 libpfm4 libpixman-1-dev libselinux1-dev libsepol-dev
+  libslirp-dev libslirp0 libxml2-dev libz3-4 libz3-dev llvm llvm-18
+  llvm-18-dev llvm-18-linker-tools llvm-18-runtime llvm-18-tools llvm-runtime
+  m4 ninja-build python3-packaging uuid-dev
+0 upgraded, 45 newly installed, 0 to remove and 46 not upgraded.
+Need to get 107 MB of archives.
+After this operation, 642 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 m4 amd64 1.4.19-4build1 [244 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 flex amd64 2.6.4-8.2build1 [301 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 bison amd64 2:3.8.2+dfsg-1build2 [749 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble/main amd64 libgc1 amd64 1:8.2.6-1build1 [90.3 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libobjc4 amd64 14.2.0-4ubuntu2~24.04.1 [47.1 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libobjc-13-dev amd64 13.3.0-6ubuntu2~24.04.1 [194 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libclang-common-18-dev amd64 1:18.1.3-1ubuntu1 [736 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-linker-tools amd64 1:18.1.3-1ubuntu1 [1,314 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 clang-18 amd64 1:18.1.3-1ubuntu1 [80.0 kB]
+Get:10 http://archive.ubuntu.com/ubuntu noble/universe amd64 clang amd64 1:18.0-59~exp2 [5,846 B]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 icu-devtools amd64 74.2-1ubuntu3.1 [212 kB]
+Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libc6-i386 amd64 2.39-0ubuntu8.8 [2,787 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 lib32gcc-s1 amd64 14.2.0-4ubuntu2~24.04.1 [92.3 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 lib32stdc++6 amd64 14.2.0-4ubuntu2~24.04.1 [814 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libclang-rt-18-dev amd64 1:18.1.3-1ubuntu1 [3,772 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 libfl2 amd64 2.6.4-8.2build1 [9,768 B]
+Get:17 http://archive.ubuntu.com/ubuntu noble/main amd64 libfl-dev amd64 2.6.4-8.2build1 [6,250 B]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgirepository-2.0-0 amd64 2.80.0-6ubuntu3.8 [73.6 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble/main amd64 libffi-dev amd64 3.4.6-1build1 [62.8 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble/main amd64 python3-packaging all 24.0-1 [41.1 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-dev-bin amd64 2.80.0-6ubuntu3.8 [138 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 uuid-dev amd64 2.39.3-9ubuntu6.5 [33.5 kB]
+Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libblkid-dev amd64 2.39.3-9ubuntu6.5 [204 kB]
+Get:24 http://archive.ubuntu.com/ubuntu noble/main amd64 libsepol-dev amd64 3.5-2build1 [384 kB]
+Get:25 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpcre2-posix3 amd64 10.42-4ubuntu2.1 [6,748 B]
+Get:26 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpcre2-dev amd64 10.42-4ubuntu2.1 [736 kB]
+Get:27 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libselinux1-dev amd64 3.5-2ubuntu2.1 [164 kB]
+Get:28 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libmount-dev amd64 2.39.3-9ubuntu6.5 [14.9 kB]
+Get:29 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-dev amd64 2.80.0-6ubuntu3.8 [1,860 kB]
+Get:30 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libicu-dev amd64 74.2-1ubuntu3.1 [11.9 MB]
+Get:31 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libncurses-dev amd64 6.4+20240113-1ubuntu2.1 [384 kB]
+Get:32 http://archive.ubuntu.com/ubuntu noble/main amd64 libpixman-1-dev amd64 0.42.2-1build1 [296 kB]
+Get:33 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libslirp0 amd64 4.7.0-1ubuntu3.1 [63.8 kB]
+Get:34 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libslirp-dev amd64 4.7.0-1ubuntu3.1 [79.0 kB]
+Get:35 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libxml2-dev amd64 2.9.14+dfsg-1.3ubuntu3.8 [782 kB]
+Get:36 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-runtime amd64 1:18.1.3-1ubuntu1 [538 kB]
+Get:37 http://archive.ubuntu.com/ubuntu noble/universe amd64 llvm-runtime amd64 1:18.0-59~exp2 [5,496 B]
+Get:38 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpfm4 amd64 4.13.0+git32-g0d4ed0e-1 [414 kB]
+Get:39 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18 amd64 1:18.1.3-1ubuntu1 [25.3 MB]
+Get:40 http://archive.ubuntu.com/ubuntu noble/universe amd64 llvm amd64 1:18.0-59~exp2 [4,146 B]
+Get:41 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-tools amd64 1:18.1.3-1ubuntu1 [534 kB]
+Get:42 http://archive.ubuntu.com/ubuntu noble/universe amd64 libz3-4 amd64 4.8.12-3.1build1 [5,836 kB]
+Get:43 http://archive.ubuntu.com/ubuntu noble/universe amd64 libz3-dev amd64 4.8.12-3.1build1 [72.2 kB]
+Get:44 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-dev amd64 1:18.1.3-1ubuntu1 [45.1 MB]
+Get:45 http://archive.ubuntu.com/ubuntu noble/universe amd64 ninja-build amd64 1.11.1-2 [129 kB]
+Fetched 107 MB in 20s (5,310 kB/s)                                             
+Extracting templates from packages: 100%
+Selecting previously unselected package m4.
+(Reading database ... 246852 files and directories currently installed.)
+Preparing to unpack .../00-m4_1.4.19-4build1_amd64.deb ...
+Unpacking m4 (1.4.19-4build1) ...
+Selecting previously unselected package flex.
+Preparing to unpack .../01-flex_2.6.4-8.2build1_amd64.deb ...
+Unpacking flex (2.6.4-8.2build1) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../02-bison_2%3a3.8.2+dfsg-1build2_amd64.deb ...
+Unpacking bison (2:3.8.2+dfsg-1build2) ...
+Selecting previously unselected package libgc1:amd64.
+Preparing to unpack .../03-libgc1_1%3a8.2.6-1build1_amd64.deb ...
+Unpacking libgc1:amd64 (1:8.2.6-1build1) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../04-libobjc4_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libobjc4:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Selecting previously unselected package libobjc-13-dev:amd64.
+Preparing to unpack .../05-libobjc-13-dev_13.3.0-6ubuntu2~24.04.1_amd64.deb ...
+Unpacking libobjc-13-dev:amd64 (13.3.0-6ubuntu2~24.04.1) ...
+Selecting previously unselected package libclang-common-18-dev:amd64.
+Preparing to unpack .../06-libclang-common-18-dev_1%3a18.1.3-1ubuntu1_amd64.deb 
+...
+Unpacking libclang-common-18-dev:amd64 (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package llvm-18-linker-tools.
+Preparing to unpack .../07-llvm-18-linker-tools_1%3a18.1.3-1ubuntu1_amd64.deb ..
+.
+Unpacking llvm-18-linker-tools (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package clang-18.
+Preparing to unpack .../08-clang-18_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Unpacking clang-18 (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package clang.
+Preparing to unpack .../09-clang_1%3a18.0-59~exp2_amd64.deb ...
+Unpacking clang (1:18.0-59~exp2) ...
+Selecting previously unselected package icu-devtools.
+Preparing to unpack .../10-icu-devtools_74.2-1ubuntu3.1_amd64.deb ...
+Unpacking icu-devtools (74.2-1ubuntu3.1) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../11-libc6-i386_2.39-0ubuntu8.8_amd64.deb ...
+Unpacking libc6-i386 (2.39-0ubuntu8.8) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../12-lib32gcc-s1_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking lib32gcc-s1 (14.2.0-4ubuntu2~24.04.1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../13-lib32stdc++6_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking lib32stdc++6 (14.2.0-4ubuntu2~24.04.1) ...
+Selecting previously unselected package libclang-rt-18-dev:amd64.
+Preparing to unpack .../14-libclang-rt-18-dev_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Unpacking libclang-rt-18-dev:amd64 (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package libfl2:amd64.
+Preparing to unpack .../15-libfl2_2.6.4-8.2build1_amd64.deb ...
+Unpacking libfl2:amd64 (2.6.4-8.2build1) ...
+Selecting previously unselected package libfl-dev:amd64.
+Preparing to unpack .../16-libfl-dev_2.6.4-8.2build1_amd64.deb ...
+Unpacking libfl-dev:amd64 (2.6.4-8.2build1) ...
+Selecting previously unselected package libgirepository-2.0-0:amd64.
+Preparing to unpack .../17-libgirepository-2.0-0_2.80.0-6ubuntu3.8_amd64.deb ...
+Unpacking libgirepository-2.0-0:amd64 (2.80.0-6ubuntu3.8) ...
+Selecting previously unselected package libffi-dev:amd64.
+Preparing to unpack .../18-libffi-dev_3.4.6-1build1_amd64.deb ...
+Unpacking libffi-dev:amd64 (3.4.6-1build1) ...
+Selecting previously unselected package python3-packaging.
+Preparing to unpack .../19-python3-packaging_24.0-1_all.deb ...
+Unpacking python3-packaging (24.0-1) ...
+Selecting previously unselected package libglib2.0-dev-bin.
+Preparing to unpack .../20-libglib2.0-dev-bin_2.80.0-6ubuntu3.8_amd64.deb ...
+Unpacking libglib2.0-dev-bin (2.80.0-6ubuntu3.8) ...
+Selecting previously unselected package uuid-dev:amd64.
+Preparing to unpack .../21-uuid-dev_2.39.3-9ubuntu6.5_amd64.deb ...
+Unpacking uuid-dev:amd64 (2.39.3-9ubuntu6.5) ...
+Selecting previously unselected package libblkid-dev:amd64.
+Preparing to unpack .../22-libblkid-dev_2.39.3-9ubuntu6.5_amd64.deb ...
+Unpacking libblkid-dev:amd64 (2.39.3-9ubuntu6.5) ...
+Selecting previously unselected package libsepol-dev:amd64.
+Preparing to unpack .../23-libsepol-dev_3.5-2build1_amd64.deb ...
+Unpacking libsepol-dev:amd64 (3.5-2build1) ...
+Selecting previously unselected package libpcre2-posix3:amd64.
+Preparing to unpack .../24-libpcre2-posix3_10.42-4ubuntu2.1_amd64.deb ...
+Unpacking libpcre2-posix3:amd64 (10.42-4ubuntu2.1) ...
+Selecting previously unselected package libpcre2-dev:amd64.
+Preparing to unpack .../25-libpcre2-dev_10.42-4ubuntu2.1_amd64.deb ...
+Unpacking libpcre2-dev:amd64 (10.42-4ubuntu2.1) ...
+Selecting previously unselected package libselinux1-dev:amd64.
+Preparing to unpack .../26-libselinux1-dev_3.5-2ubuntu2.1_amd64.deb ...
+Unpacking libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...
+Selecting previously unselected package libmount-dev:amd64.
+Preparing to unpack .../27-libmount-dev_2.39.3-9ubuntu6.5_amd64.deb ...
+Unpacking libmount-dev:amd64 (2.39.3-9ubuntu6.5) ...
+Selecting previously unselected package libglib2.0-dev:amd64.
+Preparing to unpack .../28-libglib2.0-dev_2.80.0-6ubuntu3.8_amd64.deb ...
+Unpacking libglib2.0-dev:amd64 (2.80.0-6ubuntu3.8) ...
+Selecting previously unselected package libicu-dev:amd64.
+Preparing to unpack .../29-libicu-dev_74.2-1ubuntu3.1_amd64.deb ...
+Unpacking libicu-dev:amd64 (74.2-1ubuntu3.1) ...
+Selecting previously unselected package libncurses-dev:amd64.
+Preparing to unpack .../30-libncurses-dev_6.4+20240113-1ubuntu2.1_amd64.deb ...
+Unpacking libncurses-dev:amd64 (6.4+20240113-1ubuntu2.1) ...
+Selecting previously unselected package libpixman-1-dev:amd64.
+Preparing to unpack .../31-libpixman-1-dev_0.42.2-1build1_amd64.deb ...
+Unpacking libpixman-1-dev:amd64 (0.42.2-1build1) ...
+Selecting previously unselected package libslirp0:amd64.
+Preparing to unpack .../32-libslirp0_4.7.0-1ubuntu3.1_amd64.deb ...
+Unpacking libslirp0:amd64 (4.7.0-1ubuntu3.1) ...
+Selecting previously unselected package libslirp-dev:amd64.
+Preparing to unpack .../33-libslirp-dev_4.7.0-1ubuntu3.1_amd64.deb ...
+Unpacking libslirp-dev:amd64 (4.7.0-1ubuntu3.1) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Preparing to unpack .../34-libxml2-dev_2.9.14+dfsg-1.3ubuntu3.8_amd64.deb ...
+Unpacking libxml2-dev:amd64 (2.9.14+dfsg-1.3ubuntu3.8) ...
+Selecting previously unselected package llvm-18-runtime.
+Preparing to unpack .../35-llvm-18-runtime_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Unpacking llvm-18-runtime (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package llvm-runtime:amd64.
+Preparing to unpack .../36-llvm-runtime_1%3a18.0-59~exp2_amd64.deb ...
+Unpacking llvm-runtime:amd64 (1:18.0-59~exp2) ...
+Selecting previously unselected package libpfm4:amd64.
+Preparing to unpack .../37-libpfm4_4.13.0+git32-g0d4ed0e-1_amd64.deb ...
+Unpacking libpfm4:amd64 (4.13.0+git32-g0d4ed0e-1) ...
+Selecting previously unselected package llvm-18.
+Preparing to unpack .../38-llvm-18_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Unpacking llvm-18 (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package llvm.
+Preparing to unpack .../39-llvm_1%3a18.0-59~exp2_amd64.deb ...
+Unpacking llvm (1:18.0-59~exp2) ...
+Selecting previously unselected package llvm-18-tools.
+Preparing to unpack .../40-llvm-18-tools_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Unpacking llvm-18-tools (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package libz3-4:amd64.
+Preparing to unpack .../41-libz3-4_4.8.12-3.1build1_amd64.deb ...
+Unpacking libz3-4:amd64 (4.8.12-3.1build1) ...
+Selecting previously unselected package libz3-dev:amd64.
+Preparing to unpack .../42-libz3-dev_4.8.12-3.1build1_amd64.deb ...
+Unpacking libz3-dev:amd64 (4.8.12-3.1build1) ...
+Selecting previously unselected package llvm-18-dev.
+Preparing to unpack .../43-llvm-18-dev_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Unpacking llvm-18-dev (1:18.1.3-1ubuntu1) ...
+Selecting previously unselected package ninja-build.
+Preparing to unpack .../44-ninja-build_1.11.1-2_amd64.deb ...
+Unpacking ninja-build (1.11.1-2) ...
+Setting up libncurses-dev:amd64 (6.4+20240113-1ubuntu2.1) ...
+Setting up libpixman-1-dev:amd64 (0.42.2-1build1) ...
+Setting up libgirepository-2.0-0:amd64 (2.80.0-6ubuntu3.8) ...
+Setting up m4 (1.4.19-4build1) ...
+Setting up llvm-18-tools (1:18.1.3-1ubuntu1) ...
+Setting up libffi-dev:amd64 (3.4.6-1build1) ...
+Setting up ninja-build (1.11.1-2) ...
+Setting up libz3-4:amd64 (4.8.12-3.1build1) ...
+Setting up python3-packaging (24.0-1) ...
+Setting up libpfm4:amd64 (4.13.0+git32-g0d4ed0e-1) ...
+Setting up uuid-dev:amd64 (2.39.3-9ubuntu6.5) ...
+Setting up icu-devtools (74.2-1ubuntu3.1) ...
+Setting up libsepol-dev:amd64 (3.5-2build1) ...
+Setting up libfl2:amd64 (2.6.4-8.2build1) ...
+Setting up libclang-common-18-dev:amd64 (1:18.1.3-1ubuntu1) ...
+Setting up libgc1:amd64 (1:8.2.6-1build1) ...
+Setting up llvm-18-linker-tools (1:18.1.3-1ubuntu1) ...
+Setting up libpcre2-posix3:amd64 (10.42-4ubuntu2.1) ...
+Setting up libslirp0:amd64 (4.7.0-1ubuntu3.1) ...
+Setting up bison (2:3.8.2+dfsg-1build2) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) i
+n auto mode
+Setting up libc6-i386 (2.39-0ubuntu8.8) ...
+Setting up llvm-18-runtime (1:18.1.3-1ubuntu1) ...
+Setting up libicu-dev:amd64 (74.2-1ubuntu3.1) ...
+Setting up libglib2.0-dev-bin (2.80.0-6ubuntu3.8) ...
+Setting up libblkid-dev:amd64 (2.39.3-9ubuntu6.5) ...
+Setting up libz3-dev:amd64 (4.8.12-3.1build1) ...
+Setting up flex (2.6.4-8.2build1) ...
+Setting up libpcre2-dev:amd64 (10.42-4ubuntu2.1) ...
+Setting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...
+Setting up libslirp-dev:amd64 (4.7.0-1ubuntu3.1) ...
+Setting up libobjc4:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libfl-dev:amd64 (2.6.4-8.2build1) ...
+Setting up libxml2-dev:amd64 (2.9.14+dfsg-1.3ubuntu3.8) ...
+Setting up lib32gcc-s1 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up lib32stdc++6 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up llvm-runtime:amd64 (1:18.0-59~exp2) ...
+Setting up llvm-18 (1:18.1.3-1ubuntu1) ...
+Setting up libclang-rt-18-dev:amd64 (1:18.1.3-1ubuntu1) ...
+Setting up libmount-dev:amd64 (2.39.3-9ubuntu6.5) ...
+Setting up libobjc-13-dev:amd64 (13.3.0-6ubuntu2~24.04.1) ...
+Setting up llvm-18-dev (1:18.1.3-1ubuntu1) ...
+Setting up clang-18 (1:18.1.3-1ubuntu1) ...
+Setting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.8) ...
+Setting up clang (1:18.0-59~exp2) ...
+Setting up llvm (1:18.0-59~exp2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+Processing triggers for systemd (255.4-1ubuntu8.17) ...
+Warning: The unit file, source configuration file or drop-ins of systemd-binfmt.
+service changed on disk. Run 'systemctl daemon-reload' to reload units.
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.8) ...
+Processing triggers for install-info (7.1-3build2) ...
+mmsh@mmsh:~/Downloads$ rustc --version
+cargo --version
+rustc 1.98.0 (88d9e12ae 2026-08-18)
+cargo 1.98.0 (797e8a9bc 2026-08-05)
+mmsh@mmsh:~/Downloads$ cd ~/smm_project
+mkdir -p phase2_init/qemu_env phase2_init/dummy_protocols phase2_init/harness
+mmsh@mmsh:~/smm_project$ cd ~/smm_project/phase2_init/dummy_protocols
+nano dummy_dxe.c
+mmsh@mmsh:~/smm_project/phase2_init/dummy_protocols$ gcc -o dummy_dxe dummy_dxe.c
+./dummy_dxe
+[*] Initializing SmuFuzz Adaptive DXE Protocol Layer...
+[+] Dummy DXE Protocol created successfully with Fuzz Data: 0xDEADBEEF
+mmsh@mmsh:~/smm_project/phase2_init/dummy_protocols$ cd ~/smm_project/phase2_init/harness
+nano init_fuzzer.py
+mmsh@mmsh:~/smm_project/phase2_init/harness$ cd ~/smm_project/phase2_init/harness
+python3 init_fuzzer.py
+=================================================================
+[*] Starting SmuFuzz Phase 2: SMM Module Initialization Fuzzing
+=================================================================
+[*] Total target SMM modules found: 136
+  [001/136] [+] Initialized: 87_HttpBootDxe_1_PE32_image_section... (Attempts: 1)
+  [002/136] [+] Initialized: 64_VirtioFsDxe_0_PE32_image_section... (Attempts: 1)
+  [003/136] [+] Initialized: 57_AcpiTableDxe_1_PE32_image_sectio... (Attempts: 1)
+  [004/136] [+] Initialized: 6_SecurityStubDxe_1_PE32_image_sect... (Attempts: 1)
+  [005/136] [+] Initialized: 45_SataController_0_PE32_image_sect... (Attempts: 1)
+  [006/136] [+] Initialized: 68_SnpDxe_0_PE32_image_section_130.... (Attempts: 1)
+  [007/136] [+] Initialized: 104_CpuS3DataDxe_1_PE32_image_secti... (Attempts: 1)
+  [008/136] [+] Initialized: 17_Metronome_1_PE32_image_section_4... (Attempts: 1)
+  [009/136] [+] Initialized: 29_CapsuleRuntimeDxe_1_PE32_image_s... (Attempts: 1)
+  [010/136] [+] Initialized: 16_ResetSystemRuntimeDxe_1_PE32_ima... (Attempts: 1)
+  [011/136] [+] Initialized: 0_SecMain_0_PE32_image_section_135.... (Attempts: 1)
+  [012/136] [+] Initialized: 11_DxeIpl_1_PE32_image_section_5.ef... (Attempts: 1)
+  [013/136] [+] Initialized: 27_WatchdogTimer_1_PE32_image_secti... (Attempts: 1)
+  [014/136] [+] Initialized: 103_SmmControl2Dxe_1_PE32_image_sec... (Attempts: 1)
+  [015/136] [+] Initialized: 67_DpcDxe_1_PE32_image_section_78.e... (Attempts: 1)
+  [016/136] [+] Initialized: 23_VirtioRngDxe_0_PE32_image_sectio... (Attempts: 1)
+  [017/136] [+] Initialized: 79_Mtftp6Dxe_0_PE32_image_section_6... (Attempts: 1)
+  [018/136] [+] Initialized: 78_Udp6Dxe_0_PE32_image_section_127... (Attempts: 1)
+  [019/136] [+] Initialized: 75_Mtftp4Dxe_0_PE32_image_section_1... (Attempts: 1)
+  [020/136] [+] Initialized: 18_PcRtc_1_PE32_image_section_93.ef... (Attempts: 1)
+  [021/136] [+] Initialized: 51_DisplayEngine_2_PE32_image_secti... (Attempts: 1)
+  [022/136] [+] Initialized: 106_PiSmmCore_0_PE32_image_section_... (Attempts: 1)
+  [023/136] [+] Initialized: 4_PcdPeim_3_PE32_image_section_6.ef... (Attempts: 1)
+  [024/136] [+] Initialized: 86_HttpUtilitiesDxe_1_PE32_image_se... (Attempts: 1)
+  [025/136] [+] Initialized: 100_AmdSevDxe_1_PE32_image_section_... (Attempts: 1)
+  [026/136] [+] Initialized: 32_GraphicsConsoleDxe_0_PE32_image_... (Attempts: 1)
+  [027/136] [+] Initialized: 92_XhciDxe_0_PE32_image_section_50.... (Attempts: 1)
+  [028/136] [+] Initialized: 95_UsbMassStorageDxe_0_PE32_image_s... (Attempts: 1)
+  [029/136] [+] Initialized: 84_DnsDxe_0_PE32_image_section_118.... (Attempts: 1)
+  [030/136] [+] Initialized: 73_Ip4Dxe_2_PE32_image_section_29.e... (Attempts: 1)
+  [031/136] [+] Initialized: 30_Tcg2PlatformPei_2_PE32_image_sec... (Attempts: 1)
+  [032/136] [+] Initialized: 22_VirtioScsiDxe_0_PE32_image_secti... (Attempts: 1)
+  [033/136] [+] Initialized: 70_MnpDxe_0_PE32_image_section_61.e... (Attempts: 1)
+  [034/136] [+] Initialized: 91_EhciDxe_0_PE32_image_section_94.... (Attempts: 1)
+  [035/136] [+] Initialized: 109_SmmLockBox_1_PE32_image_section... (Attempts: 1)
+  [036/136] [+] Initialized: 48_NvmExpressDxe_0_PE32_image_secti... (Attempts: 1)
+  [037/136] [+] Initialized: 7_StatusCodeHandlerPei_2_PE32_image... (Attempts: 1)
+  [038/136] [+] Initialized: 12_IncompatiblePciDeviceSupportDxe_... (Attempts: 1)
+  [039/136] [+] Initialized: 49_HiiDatabase_1_PE32_image_section... (Attempts: 1)
+  [040/136] [+] Initialized: 14_PciHostBridgeDxe_1_PE32_image_se... (Attempts: 1)
+  [041/136] [+] Initialized: 18_SmmAccessPei_2_PE32_image_sectio... (Attempts: 1)
+  [042/136] [+] Initialized: 37_QemuKernelLoaderFsDxe_1_PE32_ima... (Attempts: 1)
+  [043/136] [+] Initialized: 118_Tcg2PlatformDxe_1_PE32_image_se... (Attempts: 1)
+  [044/136] [+] Initialized: 94_UsbKbDxe_0_PE32_image_section_11... (Attempts: 1)
+  [045/136] [+] Initialized: 28_Tcg2Pei_1_PE32_image_section_16.... (Attempts: 1)
+  [046/136] [+] Initialized: 76_Dhcp6Dxe_0_PE32_image_section_10... (Attempts: 1)
+  [047/136] [+] Initialized: 39_DiskIoDxe_0_PE32_image_section_2... (Attempts: 1)
+  [048/136] [+] Initialized: 34_DriverHealthManagerDxe_2_PE32_im... (Attempts: 1)
+  [049/136] [+] Initialized: 19_VirtioPciDeviceDxe_0_PE32_image_... (Attempts: 1)
+  [050/136] [+] Initialized: 22_CpuMpPei_2_PE32_image_section_10... (Attempts: 1)
+  [051/136] [+] Initialized: 93_UsbBusDxe_0_PE32_image_section_4... (Attempts: 1)
+  [052/136] [+] Initialized: 111_FvbServicesSmm_1_PE32_image_sec... (Attempts: 1)
+  [053/136] [+] Initialized: 21_VirtioBlkDxe_0_PE32_image_sectio... (Attempts: 1)
+  [054/136] [+] Initialized: 77_Ip6Dxe_2_PE32_image_section_113.... (Attempts: 1)
+  [055/136] [+] Initialized: 105_PiSmmIpl_1_PE32_image_section_1... (Attempts: 1)
+  [056/136] [+] Initialized: 117_Tcg2Dxe_1_PE32_image_section_52... (Attempts: 1)
+  [057/136] [+] Initialized: 27_TcgPei_1_PE32_image_section_7.ef... (Attempts: 1)
+  [058/136] [+] Initialized: 66_TdxDxe_1_PE32_image_section_91.e... (Attempts: 1)
+  [059/136] [+] Initialized: 61_BootGraphicsResourceTableDxe_0_P... (Attempts: 1)
+  [060/136] [+] Initialized: 41_RamDiskDxe_2_PE32_image_section_... (Attempts: 1)
+  [061/136] [+] Initialized: 9_CpuDxe_1_PE32_image_section_95.ef... (Attempts: 1)
+  [062/136] [+] Initialized: 53_PciSioSerialDxe_0_PE32_image_sec... (Attempts: 1)
+  [063/136] [+] Initialized: 38_DevicePathDxe_1_PE32_image_secti... (Attempts: 1)
+  [064/136] [+] Initialized: 107_CpuHotplugSmm_1_PE32_image_sect... (Attempts: 1)
+  [065/136] [+] Initialized: 11_LocalApicTimerDxe_1_PE32_image_s... (Attempts: 1)
+  [066/136] [+] Initialized: 71_ArpDxe_0_PE32_image_section_125.... (Attempts: 1)
+  [067/136] [+] Initialized: 33_TerminalDxe_0_PE32_image_section... (Attempts: 1)
+  [068/136] [+] Initialized: 83_TlsAuthConfigDxe_2_PE32_image_se... (Attempts: 1)
+  [069/136] [+] Initialized: 113_VariableSmm_1_PE32_image_sectio... (Attempts: 1)
+  [070/136] [+] Initialized: 98_VirtioGpuDxe_0_PE32_image_sectio... (Attempts: 1)
+  [071/136] [+] Initialized: 108_CpuIo2Smm_1_PE32_image_section_... (Attempts: 1)
+  [072/136] [+] Initialized: 5_RuntimeDxe_1_PE32_image_section_8... (Attempts: 1)
+  [073/136] [+] Initialized: 50_SetupBrowser_1_PE32_image_sectio... (Attempts: 1)
+  [074/136] [+] Initialized: 89_VirtioNetDxe_0_PE32_image_sectio... (Attempts: 1)
+  [075/136] [+] Initialized: 20_Virtio10_0_PE32_image_section_80... (Attempts: 1)
+  [076/136] [+] Initialized: 102_SmmAccess2Dxe_1_PE32_image_sect... (Attempts: 1)
+  [077/136] [+] Initialized: 112_SmmFaultTolerantWriteDxe_1_PE32... (Attempts: 1)
+  [078/136] [+] Initialized: 59_S3SaveStateDxe_1_PE32_image_sect... (Attempts: 1)
+  [079/136] [+] Initialized: 82_TlsDxe_0_PE32_image_section_97.e... (Attempts: 1)
+  [080/136] [+] Initialized: 10_CpuDxe_1_PE32_image_section_75.e... (Attempts: 1)
+  [081/136] [+] Initialized: 119_Tcg2ConfigDxe_2_PE32_image_sect... (Attempts: 1)
+  [082/136] [+] Initialized: 69_VlanConfigDxe_1_PE32_image_secti... (Attempts: 1)
+  [083/136] [+] Initialized: 26_FirmwareSecvarUpdater_1_PE32_ima... (Attempts: 1)
+  [084/136] [+] Initialized: 14_FaultTolerantWritePei_2_PE32_ima... (Attempts: 1)
+  [085/136] [+] Initialized: 13_PciHotPlugInitDxe_1_PE32_image_s... (Attempts: 1)
+  [086/136] [+] Initialized: 47_AtaBusDxe_0_PE32_image_section_2... (Attempts: 1)
+  [087/136] [+] Initialized: 46_AtaAtapiPassThruDxe_0_PE32_image... (Attempts: 1)
+  [088/136] [+] Initialized: 58_QemuFwCfgAcpiPlatform_1_PE32_ima... (Attempts: 1)
+  [089/136] [+] Initialized: 90_UhciDxe_0_PE32_image_section_132... (Attempts: 1)
+  [090/136] [+] Initialized: 97_QemuRamfbDxe_1_PE32_image_sectio... (Attempts: 1)
+  [091/136] [+] Initialized: 62_Fat_0_PE32_image_section_101.efi... (Attempts: 1)
+  [092/136] [+] Initialized: 65_LogoDxe_1_PE32_image_section_22.... (Attempts: 1)
+  [093/136] [+] Initialized: 23_TpmMmioSevDecryptPei_2_PE32_imag... (Attempts: 1)
+  [094/136] [+] Initialized: 54_Ps2KeyboardDxe_0_PE32_image_sect... (Attempts: 1)
+  [095/136] [+] Initialized: 20_CpuMpPei_2_PE32_image_section_11... (Attempts: 1)
+  [096/136] [+] Initialized: 60_BootScriptExecutorDxe_1_PE32_ima... (Attempts: 1)
+  [097/136] [+] Initialized: 74_Udp4Dxe_0_PE32_image_section_122... (Attempts: 1)
+  [098/136] [+] Initialized: 114_VariableSmmRuntimeDxe_1_PE32_im... (Attempts: 1)
+  [099/136] [+] Initialized: 30_ConPlatformDxe_0_PE32_image_sect... (Attempts: 1)
+  [100/136] [+] Initialized: 52_SioBusDxe_0_PE32_image_section_7... (Attempts: 1)
+  [101/136] [+] Initialized: 1_DxeCore_0_PE32_image_section_58.e... (Attempts: 1)
+  [102/136] [+] Initialized: 101_IoMmuDxe_1_PE32_image_section_5... (Attempts: 1)
+  [103/136] [+] Initialized: 42_EnglishDxe_0_PE32_image_section_... (Attempts: 1)
+  [104/136] [+] Initialized: 8_CpuIo2Dxe_1_PE32_image_section_70... (Attempts: 1)
+  [105/136] [+] Initialized: 72_Dhcp4Dxe_0_PE32_image_section_20... (Attempts: 1)
+  [106/136] [+] Initialized: 40_PartitionDxe_0_PE32_image_sectio... (Attempts: 1)
+  [107/136] [+] Initialized: 99_PlatformDxe_2_PE32_image_section... (Attempts: 1)
+  [108/136] [+] Initialized: 5_ReportStatusCodeRouterPei_2_PE32_... (Attempts: 1)
+  [109/136] [+] Initialized: 31_ConSplitterDxe_0_PE32_image_sect... (Attempts: 1)
+  [110/136] [+] Initialized: 9_PlatformPei_2_PE32_image_section_... (Attempts: 1)
+  [111/136] [+] Initialized: 116_TcgDxe_1_PE32_image_section_35.... (Attempts: 1)
+  [112/136] [+] Initialized: 15_PciBusDxe_0_PE32_image_section_1... (Attempts: 1)
+  [113/136] [+] Initialized: 28_MonotonicCounterRuntimeDxe_1_PE3... (Attempts: 1)
+  [114/136] [+] Initialized: 115_TdTcg2Dxe_1_PE32_image_section_... (Attempts: 1)
+  [115/136] [+] Initialized: 25_SecureBootConfigDxe_2_PE32_image... (Attempts: 1)
+  [116/136] [+] Initialized: 24_VirtioSerialDxe_0_PE32_image_sec... (Attempts: 1)
+  [117/136] [+] Initialized: 88_IScsiDxe_1_PE32_image_section_10... (Attempts: 1)
+  [118/136] [+] Initialized: 44_ScsiDisk_0_PE32_image_section_11... (Attempts: 1)
+  [119/136] [+] Initialized: 85_HttpDxe_0_PE32_image_section_116... (Attempts: 1)
+  [120/136] [+] Initialized: 16_PeiVariable_2_PE32_image_section... (Attempts: 1)
+  [121/136] [+] Initialized: 63_UdfDxe_0_PE32_image_section_39.e... (Attempts: 1)
+  [122/136] [+] Initialized: 7_EbcDxe_1_PE32_image_section_47.ef... (Attempts: 1)
+  [123/136] [+] Initialized: 81_UefiPxeBcDxe_1_PE32_image_sectio... (Attempts: 1)
+  [124/136] [+] Initialized: 96_QemuVideoDxe_0_PE32_image_sectio... (Attempts: 1)
+  [125/136] [+] Initialized: 43_ScsiBus_0_PE32_image_section_36.... (Attempts: 1)
+  [126/136] [+] Initialized: 80_TcpDxe_0_PE32_image_section_56.e... (Attempts: 1)
+  [127/136] [+] Initialized: 2_ReportStatusCodeRouterRuntimeDxe_... (Attempts: 1)
+  [128/136] [+] Initialized: 4_PcdDxe_2_PE32_image_section_66.ef... (Attempts: 1)
+  [129/136] [+] Initialized: 12_S3Resume2Pei_2_PE32_image_sectio... (Attempts: 1)
+  [130/136] [+] Initialized: 36_UiApp_0_PE32_image_section_40.ef... (Attempts: 1)
+  [131/136] [+] Initialized: 2_PeiCore_1_PE32_image_section_4.ef... (Attempts: 1)
+  [132/136] [+] Initialized: 55_SmbiosDxe_1_PE32_image_section_1... (Attempts: 1)
+  [133/136] [+] Initialized: 25_Tcg2ConfigPei_2_PE32_image_secti... (Attempts: 1)
+  [134/136] [+] Initialized: 35_BdsDxe_1_PE32_image_section_43.e... (Attempts: 1)
+  [135/136] [+] Initialized: 3_StatusCodeHandlerRuntimeDxe_1_PE3... (Attempts: 1)
+  [136/136] [+] Initialized: 56_SmbiosPlatformDxe_1_PE32_image_s... (Attempts: 1)
+
+=================================================================
+[+] Phase 2 Summary:
+    - Modules Successfully Initialized: 136 / 136 (100.0%)
+    - SMI Handlers Registered: 136
+    - Metadata Ledger Saved To: /home/mmsh/smm_project/phase2_init/harness/init_records.json
+=================================================================
+mmsh@mmsh:~/smm_project/phase2_init/harness$ cd ~/smm_project/phase2_init/harness
+nano grouping.py
+mmsh@mmsh:~/smm_project/phase2_init/harness$ python3 grouping.py
+[*] Analyzing handler dependencies and constructing Fuzzing Groups...
+
+============================================================
+[+] Dependency Grouping Results:
+    - Total Identified SMI Groups: 134
+    -> Group [HttpBootDxe    ]: 1 handlers
+    -> Group [VirtioFsDxe    ]: 1 handlers
+    -> Group [AcpiTableDxe   ]: 1 handlers
+    -> Group [SecurityStubDxe]: 1 handlers
+    -> Group [SataController ]: 1 handlers
+    -> Group [SnpDxe         ]: 1 handlers
+    -> Group [CpuS3DataDxe   ]: 1 handlers
+    -> Group [Metronome      ]: 1 handlers
+    ... (and more)
+============================================================
+[+] Grouped metadata saved to: /home/mmsh/smm_project/phase2_init/harness/fuzz_groups.json
+mmsh@mmsh:~/smm_project/phase2_init/harness$ cd ~/smm_project/phase2_init/harness
+nano lock_event.py
+mmsh@mmsh:~/smm_project/phase2_init/harness$ python3 lock_event.py
+=================================================================
+[*] SmuFuzz Phase 2: Finalizing SMM Initialization & Dispatching Lock Event
+=================================================================
+[*] Total Active SMI Handlers in SMRAM: 136
+[*] Simulating SMRAM access restrictions (Configuring Lock Control Registers)...
+    -> Signalling SMM Context Finalization Callbacks... [DONE]
+    -> Setting SMM_CODE_ACCESS_CHK & MSR Lock Bits... [LOCKED]
+    -> Revoking Non-SMM Read/Write Access to SMRAM... [ENFORCED]
+
+=================================================================
+[+] SMM Initialization Phase Finalized Successfully!
+[+] Lock Event Ledger Saved To: /home/mmsh/smm_project/phase2_init/harness/lock_state.json
+[+] System is now isolated and ready for Phase 3 (Deep Fuzzing Phase).
+=================================================================
+mmsh@mmsh:~/smm_project/phase2_init/harness$ 

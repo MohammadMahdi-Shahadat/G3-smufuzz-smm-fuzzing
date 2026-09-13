@@ -1,0 +1,21 @@
+{
+    "total_executions": 1000,
+    "unique_coverage_blocks": 138,
+    "total_faults_identified": 2,
+    "fault_records": [
+        {
+            "iteration": 61,
+            "module": "4_PcdPeim_3_PE32_image_section_6.efi",
+            "handler_guid": "SMI_GUID_B059",
+            "type": "CRASH_SMRAM_REDZONE_VIOLATION",
+            "group": "PcdPeim"
+        },
+        {
+            "iteration": 621,
+            "module": "94_UsbKbDxe_0_PE32_image_section_110.efi",
+            "handler_guid": "SMI_GUID_FF57",
+            "type": "CRASH_SMRAM_REDZONE_VIOLATION",
+            "group": "UsbKbDxe"
+        }
+    ]
+}

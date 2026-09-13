@@ -1,0 +1,1086 @@
+{
+    "HttpBootDxe": [
+        {
+            "module": "87_HttpBootDxe_1_PE32_image_section_129.efi",
+            "handler_guid": "SMI_GUID_960B",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioFsDxe": [
+        {
+            "module": "64_VirtioFsDxe_0_PE32_image_section_18.efi",
+            "handler_guid": "SMI_GUID_C53C",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "AcpiTableDxe": [
+        {
+            "module": "57_AcpiTableDxe_1_PE32_image_section_82.efi",
+            "handler_guid": "SMI_GUID_5877",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SecurityStubDxe": [
+        {
+            "module": "6_SecurityStubDxe_1_PE32_image_section_24.efi",
+            "handler_guid": "SMI_GUID_55B7",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SataController": [
+        {
+            "module": "45_SataController_0_PE32_image_section_72.efi",
+            "handler_guid": "SMI_GUID_FD3A",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SnpDxe": [
+        {
+            "module": "68_SnpDxe_0_PE32_image_section_130.efi",
+            "handler_guid": "SMI_GUID_2AD0",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CpuS3DataDxe": [
+        {
+            "module": "104_CpuS3DataDxe_1_PE32_image_section_44.efi",
+            "handler_guid": "SMI_GUID_D5BC",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Metronome": [
+        {
+            "module": "17_Metronome_1_PE32_image_section_42.efi",
+            "handler_guid": "SMI_GUID_B169",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CapsuleRuntimeDxe": [
+        {
+            "module": "29_CapsuleRuntimeDxe_1_PE32_image_section_38.efi",
+            "handler_guid": "SMI_GUID_16F3",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ResetSystemRuntimeDxe": [
+        {
+            "module": "16_ResetSystemRuntimeDxe_1_PE32_image_section_34.efi",
+            "handler_guid": "SMI_GUID_5C05",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SecMain": [
+        {
+            "module": "0_SecMain_0_PE32_image_section_135.efi",
+            "handler_guid": "SMI_GUID_7AE1",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DxeIpl": [
+        {
+            "module": "11_DxeIpl_1_PE32_image_section_5.efi",
+            "handler_guid": "SMI_GUID_2675",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "WatchdogTimer": [
+        {
+            "module": "27_WatchdogTimer_1_PE32_image_section_23.efi",
+            "handler_guid": "SMI_GUID_7A39",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmmControl2Dxe": [
+        {
+            "module": "103_SmmControl2Dxe_1_PE32_image_section_25.efi",
+            "handler_guid": "SMI_GUID_4368",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DpcDxe": [
+        {
+            "module": "67_DpcDxe_1_PE32_image_section_78.efi",
+            "handler_guid": "SMI_GUID_6221",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioRngDxe": [
+        {
+            "module": "23_VirtioRngDxe_0_PE32_image_section_64.efi",
+            "handler_guid": "SMI_GUID_E587",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Mtftp6Dxe": [
+        {
+            "module": "79_Mtftp6Dxe_0_PE32_image_section_67.efi",
+            "handler_guid": "SMI_GUID_3767",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Udp6Dxe": [
+        {
+            "module": "78_Udp6Dxe_0_PE32_image_section_127.efi",
+            "handler_guid": "SMI_GUID_6583",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Mtftp4Dxe": [
+        {
+            "module": "75_Mtftp4Dxe_0_PE32_image_section_103.efi",
+            "handler_guid": "SMI_GUID_1D8F",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PcRtc": [
+        {
+            "module": "18_PcRtc_1_PE32_image_section_93.efi",
+            "handler_guid": "SMI_GUID_7071",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DisplayEngine": [
+        {
+            "module": "51_DisplayEngine_2_PE32_image_section_19.efi",
+            "handler_guid": "SMI_GUID_2AD3",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PiSmmCore": [
+        {
+            "module": "106_PiSmmCore_0_PE32_image_section_120.efi",
+            "handler_guid": "SMI_GUID_F470",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PcdPeim": [
+        {
+            "module": "4_PcdPeim_3_PE32_image_section_6.efi",
+            "handler_guid": "SMI_GUID_B059",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "HttpUtilitiesDxe": [
+        {
+            "module": "86_HttpUtilitiesDxe_1_PE32_image_section_81.efi",
+            "handler_guid": "SMI_GUID_49E2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "AmdSevDxe": [
+        {
+            "module": "100_AmdSevDxe_1_PE32_image_section_109.efi",
+            "handler_guid": "SMI_GUID_5F4E",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "GraphicsConsoleDxe": [
+        {
+            "module": "32_GraphicsConsoleDxe_0_PE32_image_section_45.efi",
+            "handler_guid": "SMI_GUID_DB2D",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "XhciDxe": [
+        {
+            "module": "92_XhciDxe_0_PE32_image_section_50.efi",
+            "handler_guid": "SMI_GUID_E05E",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UsbMassStorageDxe": [
+        {
+            "module": "95_UsbMassStorageDxe_0_PE32_image_section_37.efi",
+            "handler_guid": "SMI_GUID_3306",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DnsDxe": [
+        {
+            "module": "84_DnsDxe_0_PE32_image_section_118.efi",
+            "handler_guid": "SMI_GUID_3B66",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Ip4Dxe": [
+        {
+            "module": "73_Ip4Dxe_2_PE32_image_section_29.efi",
+            "handler_guid": "SMI_GUID_2D82",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Tcg2PlatformPei": [
+        {
+            "module": "30_Tcg2PlatformPei_2_PE32_image_section_9.efi",
+            "handler_guid": "SMI_GUID_B15C",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioScsiDxe": [
+        {
+            "module": "22_VirtioScsiDxe_0_PE32_image_section_68.efi",
+            "handler_guid": "SMI_GUID_B0DF",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "MnpDxe": [
+        {
+            "module": "70_MnpDxe_0_PE32_image_section_61.efi",
+            "handler_guid": "SMI_GUID_AD96",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "EhciDxe": [
+        {
+            "module": "91_EhciDxe_0_PE32_image_section_94.efi",
+            "handler_guid": "SMI_GUID_C0D0",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmmLockBox": [
+        {
+            "module": "109_SmmLockBox_1_PE32_image_section_33.efi",
+            "handler_guid": "SMI_GUID_8D2E",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "NvmExpressDxe": [
+        {
+            "module": "48_NvmExpressDxe_0_PE32_image_section_123.efi",
+            "handler_guid": "SMI_GUID_EE06",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "StatusCodeHandlerPei": [
+        {
+            "module": "7_StatusCodeHandlerPei_2_PE32_image_section_8.efi",
+            "handler_guid": "SMI_GUID_DDF3",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "IncompatiblePciDeviceSupportDxe": [
+        {
+            "module": "12_IncompatiblePciDeviceSupportDxe_1_PE32_image_section_112.efi",
+            "handler_guid": "SMI_GUID_5CA9",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "HiiDatabase": [
+        {
+            "module": "49_HiiDatabase_1_PE32_image_section_90.efi",
+            "handler_guid": "SMI_GUID_ECE6",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PciHostBridgeDxe": [
+        {
+            "module": "14_PciHostBridgeDxe_1_PE32_image_section_87.efi",
+            "handler_guid": "SMI_GUID_3AC1",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmmAccessPei": [
+        {
+            "module": "18_SmmAccessPei_2_PE32_image_section_15.efi",
+            "handler_guid": "SMI_GUID_42BE",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "QemuKernelLoaderFsDxe": [
+        {
+            "module": "37_QemuKernelLoaderFsDxe_1_PE32_image_section_57.efi",
+            "handler_guid": "SMI_GUID_2655",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Tcg2PlatformDxe": [
+        {
+            "module": "118_Tcg2PlatformDxe_1_PE32_image_section_100.efi",
+            "handler_guid": "SMI_GUID_72D9",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UsbKbDxe": [
+        {
+            "module": "94_UsbKbDxe_0_PE32_image_section_110.efi",
+            "handler_guid": "SMI_GUID_FF57",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Tcg2Pei": [
+        {
+            "module": "28_Tcg2Pei_1_PE32_image_section_16.efi",
+            "handler_guid": "SMI_GUID_F8E9",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Dhcp6Dxe": [
+        {
+            "module": "76_Dhcp6Dxe_0_PE32_image_section_105.efi",
+            "handler_guid": "SMI_GUID_F964",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DiskIoDxe": [
+        {
+            "module": "39_DiskIoDxe_0_PE32_image_section_28.efi",
+            "handler_guid": "SMI_GUID_9527",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DriverHealthManagerDxe": [
+        {
+            "module": "34_DriverHealthManagerDxe_2_PE32_image_section_96.efi",
+            "handler_guid": "SMI_GUID_94D4",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioPciDeviceDxe": [
+        {
+            "module": "19_VirtioPciDeviceDxe_0_PE32_image_section_32.efi",
+            "handler_guid": "SMI_GUID_7653",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CpuMpPei": [
+        {
+            "module": "22_CpuMpPei_2_PE32_image_section_10.efi",
+            "handler_guid": "SMI_GUID_5607",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        },
+        {
+            "module": "20_CpuMpPei_2_PE32_image_section_11.efi",
+            "handler_guid": "SMI_GUID_3024",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UsbBusDxe": [
+        {
+            "module": "93_UsbBusDxe_0_PE32_image_section_41.efi",
+            "handler_guid": "SMI_GUID_F0F4",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "FvbServicesSmm": [
+        {
+            "module": "111_FvbServicesSmm_1_PE32_image_section_106.efi",
+            "handler_guid": "SMI_GUID_3445",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioBlkDxe": [
+        {
+            "module": "21_VirtioBlkDxe_0_PE32_image_section_111.efi",
+            "handler_guid": "SMI_GUID_FBC0",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Ip6Dxe": [
+        {
+            "module": "77_Ip6Dxe_2_PE32_image_section_113.efi",
+            "handler_guid": "SMI_GUID_8BC2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PiSmmIpl": [
+        {
+            "module": "105_PiSmmIpl_1_PE32_image_section_115.efi",
+            "handler_guid": "SMI_GUID_6B17",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Tcg2Dxe": [
+        {
+            "module": "117_Tcg2Dxe_1_PE32_image_section_52.efi",
+            "handler_guid": "SMI_GUID_FEF0",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TcgPei": [
+        {
+            "module": "27_TcgPei_1_PE32_image_section_7.efi",
+            "handler_guid": "SMI_GUID_AA67",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TdxDxe": [
+        {
+            "module": "66_TdxDxe_1_PE32_image_section_91.efi",
+            "handler_guid": "SMI_GUID_5610",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "BootGraphicsResourceTableDxe": [
+        {
+            "module": "61_BootGraphicsResourceTableDxe_0_PE32_image_section_83.efi",
+            "handler_guid": "SMI_GUID_1E31",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "RamDiskDxe": [
+        {
+            "module": "41_RamDiskDxe_2_PE32_image_section_46.efi",
+            "handler_guid": "SMI_GUID_11A7",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CpuDxe": [
+        {
+            "module": "9_CpuDxe_1_PE32_image_section_95.efi",
+            "handler_guid": "SMI_GUID_F9E2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        },
+        {
+            "module": "10_CpuDxe_1_PE32_image_section_75.efi",
+            "handler_guid": "SMI_GUID_D175",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PciSioSerialDxe": [
+        {
+            "module": "53_PciSioSerialDxe_0_PE32_image_section_108.efi",
+            "handler_guid": "SMI_GUID_185C",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DevicePathDxe": [
+        {
+            "module": "38_DevicePathDxe_1_PE32_image_section_48.efi",
+            "handler_guid": "SMI_GUID_FC44",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CpuHotplugSmm": [
+        {
+            "module": "107_CpuHotplugSmm_1_PE32_image_section_65.efi",
+            "handler_guid": "SMI_GUID_5A87",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "LocalApicTimerDxe": [
+        {
+            "module": "11_LocalApicTimerDxe_1_PE32_image_section_73.efi",
+            "handler_guid": "SMI_GUID_62F6",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ArpDxe": [
+        {
+            "module": "71_ArpDxe_0_PE32_image_section_125.efi",
+            "handler_guid": "SMI_GUID_CB10",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TerminalDxe": [
+        {
+            "module": "33_TerminalDxe_0_PE32_image_section_31.efi",
+            "handler_guid": "SMI_GUID_F797",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TlsAuthConfigDxe": [
+        {
+            "module": "83_TlsAuthConfigDxe_2_PE32_image_section_99.efi",
+            "handler_guid": "SMI_GUID_4AD0",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VariableSmm": [
+        {
+            "module": "113_VariableSmm_1_PE32_image_section_85.efi",
+            "handler_guid": "SMI_GUID_87F8",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioGpuDxe": [
+        {
+            "module": "98_VirtioGpuDxe_0_PE32_image_section_55.efi",
+            "handler_guid": "SMI_GUID_86B6",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CpuIo2Smm": [
+        {
+            "module": "108_CpuIo2Smm_1_PE32_image_section_84.efi",
+            "handler_guid": "SMI_GUID_A117",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "RuntimeDxe": [
+        {
+            "module": "5_RuntimeDxe_1_PE32_image_section_89.efi",
+            "handler_guid": "SMI_GUID_1B17",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SetupBrowser": [
+        {
+            "module": "50_SetupBrowser_1_PE32_image_section_134.efi",
+            "handler_guid": "SMI_GUID_FDC0",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioNetDxe": [
+        {
+            "module": "89_VirtioNetDxe_0_PE32_image_section_128.efi",
+            "handler_guid": "SMI_GUID_7A96",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Virtio10": [
+        {
+            "module": "20_Virtio10_0_PE32_image_section_80.efi",
+            "handler_guid": "SMI_GUID_43D2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmmAccess2Dxe": [
+        {
+            "module": "102_SmmAccess2Dxe_1_PE32_image_section_17.efi",
+            "handler_guid": "SMI_GUID_7F59",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmmFaultTolerantWriteDxe": [
+        {
+            "module": "112_SmmFaultTolerantWriteDxe_1_PE32_image_section_88.efi",
+            "handler_guid": "SMI_GUID_5EDC",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "S3SaveStateDxe": [
+        {
+            "module": "59_S3SaveStateDxe_1_PE32_image_section_30.efi",
+            "handler_guid": "SMI_GUID_F9F8",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TlsDxe": [
+        {
+            "module": "82_TlsDxe_0_PE32_image_section_97.efi",
+            "handler_guid": "SMI_GUID_11A8",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Tcg2ConfigDxe": [
+        {
+            "module": "119_Tcg2ConfigDxe_2_PE32_image_section_79.efi",
+            "handler_guid": "SMI_GUID_81FD",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VlanConfigDxe": [
+        {
+            "module": "69_VlanConfigDxe_1_PE32_image_section_51.efi",
+            "handler_guid": "SMI_GUID_574D",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "FirmwareSecvarUpdater": [
+        {
+            "module": "26_FirmwareSecvarUpdater_1_PE32_image_section_21.efi",
+            "handler_guid": "SMI_GUID_81E2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "FaultTolerantWritePei": [
+        {
+            "module": "14_FaultTolerantWritePei_2_PE32_image_section_14.efi",
+            "handler_guid": "SMI_GUID_309E",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PciHotPlugInitDxe": [
+        {
+            "module": "13_PciHotPlugInitDxe_1_PE32_image_section_86.efi",
+            "handler_guid": "SMI_GUID_8EDD",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "AtaBusDxe": [
+        {
+            "module": "47_AtaBusDxe_0_PE32_image_section_27.efi",
+            "handler_guid": "SMI_GUID_81BD",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "AtaAtapiPassThruDxe": [
+        {
+            "module": "46_AtaAtapiPassThruDxe_0_PE32_image_section_114.efi",
+            "handler_guid": "SMI_GUID_95B8",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "QemuFwCfgAcpiPlatform": [
+        {
+            "module": "58_QemuFwCfgAcpiPlatform_1_PE32_image_section_62.efi",
+            "handler_guid": "SMI_GUID_1D9A",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UhciDxe": [
+        {
+            "module": "90_UhciDxe_0_PE32_image_section_132.efi",
+            "handler_guid": "SMI_GUID_AB57",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "QemuRamfbDxe": [
+        {
+            "module": "97_QemuRamfbDxe_1_PE32_image_section_98.efi",
+            "handler_guid": "SMI_GUID_4CFA",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Fat": [
+        {
+            "module": "62_Fat_0_PE32_image_section_101.efi",
+            "handler_guid": "SMI_GUID_65B2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "LogoDxe": [
+        {
+            "module": "65_LogoDxe_1_PE32_image_section_22.efi",
+            "handler_guid": "SMI_GUID_F0B3",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TpmMmioSevDecryptPei": [
+        {
+            "module": "23_TpmMmioSevDecryptPei_2_PE32_image_section_13.efi",
+            "handler_guid": "SMI_GUID_B88C",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Ps2KeyboardDxe": [
+        {
+            "module": "54_Ps2KeyboardDxe_0_PE32_image_section_49.efi",
+            "handler_guid": "SMI_GUID_571B",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "BootScriptExecutorDxe": [
+        {
+            "module": "60_BootScriptExecutorDxe_1_PE32_image_section_77.efi",
+            "handler_guid": "SMI_GUID_C9D5",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Udp4Dxe": [
+        {
+            "module": "74_Udp4Dxe_0_PE32_image_section_122.efi",
+            "handler_guid": "SMI_GUID_9384",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VariableSmmRuntimeDxe": [
+        {
+            "module": "114_VariableSmmRuntimeDxe_1_PE32_image_section_131.efi",
+            "handler_guid": "SMI_GUID_998E",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ConPlatformDxe": [
+        {
+            "module": "30_ConPlatformDxe_0_PE32_image_section_63.efi",
+            "handler_guid": "SMI_GUID_C154",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SioBusDxe": [
+        {
+            "module": "52_SioBusDxe_0_PE32_image_section_71.efi",
+            "handler_guid": "SMI_GUID_2A9F",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "DxeCore": [
+        {
+            "module": "1_DxeCore_0_PE32_image_section_58.efi",
+            "handler_guid": "SMI_GUID_8234",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "IoMmuDxe": [
+        {
+            "module": "101_IoMmuDxe_1_PE32_image_section_59.efi",
+            "handler_guid": "SMI_GUID_9107",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "EnglishDxe": [
+        {
+            "module": "42_EnglishDxe_0_PE32_image_section_60.efi",
+            "handler_guid": "SMI_GUID_935D",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "CpuIo2Dxe": [
+        {
+            "module": "8_CpuIo2Dxe_1_PE32_image_section_70.efi",
+            "handler_guid": "SMI_GUID_E050",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Dhcp4Dxe": [
+        {
+            "module": "72_Dhcp4Dxe_0_PE32_image_section_20.efi",
+            "handler_guid": "SMI_GUID_3D7F",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PartitionDxe": [
+        {
+            "module": "40_PartitionDxe_0_PE32_image_section_74.efi",
+            "handler_guid": "SMI_GUID_7A72",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PlatformDxe": [
+        {
+            "module": "99_PlatformDxe_2_PE32_image_section_133.efi",
+            "handler_guid": "SMI_GUID_5F1A",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ReportStatusCodeRouterPei": [
+        {
+            "module": "5_ReportStatusCodeRouterPei_2_PE32_image_section_2.efi",
+            "handler_guid": "SMI_GUID_FE3E",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ConSplitterDxe": [
+        {
+            "module": "31_ConSplitterDxe_0_PE32_image_section_117.efi",
+            "handler_guid": "SMI_GUID_4197",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PlatformPei": [
+        {
+            "module": "9_PlatformPei_2_PE32_image_section_3.efi",
+            "handler_guid": "SMI_GUID_C0FE",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TcgDxe": [
+        {
+            "module": "116_TcgDxe_1_PE32_image_section_35.efi",
+            "handler_guid": "SMI_GUID_8950",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PciBusDxe": [
+        {
+            "module": "15_PciBusDxe_0_PE32_image_section_124.efi",
+            "handler_guid": "SMI_GUID_90EF",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "MonotonicCounterRuntimeDxe": [
+        {
+            "module": "28_MonotonicCounterRuntimeDxe_1_PE32_image_section_102.efi",
+            "handler_guid": "SMI_GUID_C2AA",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TdTcg2Dxe": [
+        {
+            "module": "115_TdTcg2Dxe_1_PE32_image_section_26.efi",
+            "handler_guid": "SMI_GUID_6ECF",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SecureBootConfigDxe": [
+        {
+            "module": "25_SecureBootConfigDxe_2_PE32_image_section_53.efi",
+            "handler_guid": "SMI_GUID_B297",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "VirtioSerialDxe": [
+        {
+            "module": "24_VirtioSerialDxe_0_PE32_image_section_69.efi",
+            "handler_guid": "SMI_GUID_8872",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "IScsiDxe": [
+        {
+            "module": "88_IScsiDxe_1_PE32_image_section_104.efi",
+            "handler_guid": "SMI_GUID_178B",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ScsiDisk": [
+        {
+            "module": "44_ScsiDisk_0_PE32_image_section_119.efi",
+            "handler_guid": "SMI_GUID_31DC",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "HttpDxe": [
+        {
+            "module": "85_HttpDxe_0_PE32_image_section_116.efi",
+            "handler_guid": "SMI_GUID_B9AD",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PeiVariable": [
+        {
+            "module": "16_PeiVariable_2_PE32_image_section_0.efi",
+            "handler_guid": "SMI_GUID_D888",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UdfDxe": [
+        {
+            "module": "63_UdfDxe_0_PE32_image_section_39.efi",
+            "handler_guid": "SMI_GUID_7698",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "EbcDxe": [
+        {
+            "module": "7_EbcDxe_1_PE32_image_section_47.efi",
+            "handler_guid": "SMI_GUID_8312",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UefiPxeBcDxe": [
+        {
+            "module": "81_UefiPxeBcDxe_1_PE32_image_section_54.efi",
+            "handler_guid": "SMI_GUID_F7A3",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "QemuVideoDxe": [
+        {
+            "module": "96_QemuVideoDxe_0_PE32_image_section_121.efi",
+            "handler_guid": "SMI_GUID_4E56",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ScsiBus": [
+        {
+            "module": "43_ScsiBus_0_PE32_image_section_36.efi",
+            "handler_guid": "SMI_GUID_FE9A",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "TcpDxe": [
+        {
+            "module": "80_TcpDxe_0_PE32_image_section_56.efi",
+            "handler_guid": "SMI_GUID_1B11",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "ReportStatusCodeRouterRuntimeDxe": [
+        {
+            "module": "2_ReportStatusCodeRouterRuntimeDxe_1_PE32_image_section_126.efi",
+            "handler_guid": "SMI_GUID_8A0B",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PcdDxe": [
+        {
+            "module": "4_PcdDxe_2_PE32_image_section_66.efi",
+            "handler_guid": "SMI_GUID_3E92",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "S3Resume2Pei": [
+        {
+            "module": "12_S3Resume2Pei_2_PE32_image_section_1.efi",
+            "handler_guid": "SMI_GUID_EC8F",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "UiApp": [
+        {
+            "module": "36_UiApp_0_PE32_image_section_40.efi",
+            "handler_guid": "SMI_GUID_CFD2",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "PeiCore": [
+        {
+            "module": "2_PeiCore_1_PE32_image_section_4.efi",
+            "handler_guid": "SMI_GUID_1712",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmbiosDxe": [
+        {
+            "module": "55_SmbiosDxe_1_PE32_image_section_107.efi",
+            "handler_guid": "SMI_GUID_FBFD",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "Tcg2ConfigPei": [
+        {
+            "module": "25_Tcg2ConfigPei_2_PE32_image_section_12.efi",
+            "handler_guid": "SMI_GUID_841A",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "BdsDxe": [
+        {
+            "module": "35_BdsDxe_1_PE32_image_section_43.efi",
+            "handler_guid": "SMI_GUID_5458",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "StatusCodeHandlerRuntimeDxe": [
+        {
+            "module": "3_StatusCodeHandlerRuntimeDxe_1_PE32_image_section_92.efi",
+            "handler_guid": "SMI_GUID_FCE7",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ],
+    "SmbiosPlatformDxe": [
+        {
+            "module": "56_SmbiosPlatformDxe_1_PE32_image_section_76.efi",
+            "handler_guid": "SMI_GUID_F741",
+            "type": "Non-Root SMI",
+            "registered_at_attempt": 1
+        }
+    ]
+}
