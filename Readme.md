@@ -1,4 +1,3 @@
-
 # SmuFuzz: Deep System Management Mode Fuzzing in UEFI Runtime
 
 ## فهرست مطالب (Table of Contents)
@@ -13,7 +12,7 @@
 
 ## درباره پروژه (About The Project)
 
-این پروژه با هدف کشف آسیب‌پذیری‌های تخریب حافظه (Memory Corruption) در ماژول‌های متن‌بسته (Closed-source) مربوط به حالت مدیریت سیستم (SMM) که توسط Vendorها توسعه یافته‌اند، طراحی شده است. حالت SMM با سطح دسترسی بسیار بالا (Ring -2) و کنترل کامل بر منابع سیستم، هدفی جذاب برای مهاجمین جهت استقرار بدافزارهای دائمی (Persistent Rootkits) محسوب می‌شود.
+این پروژه با هدف کشف آسیب‌پذیری‌های تخریب حافظه (Memory Corruption) در ماژول‌های متن‌بسته (Closed-source) مربوط به حالت مدیریت سیستم (SMM) که توسط Vendorها توسعه یافته‌اند، طراحی شده است[cite: 13]. حالت SMM با سطح دسترسی بسیار بالا (Ring -2) و کنترل کامل بر منابع سیستم، هدفی جذاب برای مهاجمین جهت استقرار بدافزارهای دائمی (Persistent Rootkits) محسوب می‌شود[cite: 13].
 
 چالش اصلی در فازینگ (Fuzzing) این برنامه‌ها، فقدان یک محیط اجرایی کامل UEFI (UEFI Runtime Environment) برای بارگذاری و مقداردهی اولیه صحیح داده‌ها است که در روش‌های سنتی منجر به کرش‌های زودرس و نرخ بالای خطای مثبت کاذب (False-positive) می‌شود[cite: 13]. 
 ما در این پروژه از طریق تکنیک بازمیزبانی جزئی (Partial Rehosting) و ایجاد یک زیرساخت تطبیقی، ماژول‌های SMM را آماده‌سازی، مقداردهی و ایزوله کرده ایم[cite: 13]. از ویژگی‌های منحصربه‌فرد این سیستم می‌توان به استنباط خودکار ساختار ورودی (Automated Semantics Inference) و مکانیزم ورودی‌های چندجریانی (Multi-stream Input) جهت کاوش عمیق کدهای SMM اشاره کرد[cite: 13].
@@ -47,33 +46,42 @@
 1. **اجرای فاز ترکیب (Composing):** استخراج ماژول‌های PE32 اجرایی و سکشن‌های Depex از فریمور تارگت.
    ```bash
    python3 scripts/composing.py vendor_firmwares/OVMF_SMM.fd
-اجرای فاز مقداردهی اولیه (Initialization): لود ماژول‌ها، حل وابستگی‌های پروتکلی DXE و شبیه‌سازی Lock Event.
 
-Bash
+```
+
+2. **اجرای فاز مقداردهی اولیه (Initialization):** لود ماژول‌ها، حل وابستگی‌های پروتکلی DXE و شبیه‌سازی Lock Event.
+```bash
 python3 phase2_init/harness/init_fuzzer.py
 python3 phase2_init/harness/grouping.py
 python3 phase2_init/harness/lock_event.py
-اجرای فاز فازینگ عمیق (Deep Fuzzing): اجرای موتور فازر Multi-stream جهت تریاژ آسیب‌پذیری‌های تخریب حافظه.
 
-Bash
+```
+
+
+3. **اجرای فاز فازینگ عمیق (Deep Fuzzing):** اجرای موتور فازر Multi-stream جهت تریاژ آسیب‌پذیری‌های تخریب حافظه.
+```bash
 python3 phase3_fuzz/engine/fuzz_harness.py
-نتایج و دستاوردها (Results)
-پیاده‌سازی ما با موفقیت ۱۰۰٪ توانست تمام ۱۳۶ ماژول استخراج‌شده را لود و ۱۳۶ هندلر SMI را ثبت (Register) کند. با بهره‌گیری از رهگیر حافظه هوشمند و مکانیزم ورودی چندجریانی (Multi-stream)، سیستم توانست خطاهای مثبت کاذب ناشی از پوینترهای مقداردهی‌نشده را به صفر برساند. در ارزیابی فاز سوم، موتور SmuFuzz به طور قطعی آسیب‌پذیری‌های بحرانی CRASH_SMRAM_REDZONE_VIOLATION (دسترسی بدون چک پوینتر) را در ماژول‌های PcdPeim و UsbKbDxe کشف کرد.
 
-در ارزیابی‌های گسترده‌تر بر روی ۳۱ فریمور مختلف، فریمورک SmuFuzz توانست 4.45x برابر Basic Block Coverage بیشتری نسبت به فازرهای مدرن نظیر RSFUZZER به دست آورد[cite: 13]. همچنین، SmuFuzz موفق به کشف ۳۸ آسیب‌پذیری Memory Corruption جدید در فریمورهای توسعه‌یافته توسط Vendorهای بزرگ شد و نرخ خطای کاذب را به ۲۸٪ کاهش داد[cite: 13].
+```
 
-لینک‌های مرتبط (Related Links)
-SmuFuzz Source Code (GitHub) - Placeholder
 
-EDK II / OVMF Repository
 
-LibAFL Fuzzing Framework
+## نتایج و دستاوردها (Results)
 
-UEFITool & UEFIExtract
+پیاده‌سازی ما با موفقیت ۱۰۰٪ توانست تمام ۱۳۶ ماژول استخراج‌شده را لود و ۱۳۶ هندلر SMI را ثبت (Register) کند. با بهره‌گیری از رهگیر حافظه هوشمند و مکانیزم ورودی چندجریانی (Multi-stream)، سیستم توانست خطاهای مثبت کاذب ناشی از پوینترهای مقداردهی‌نشده را به صفر برساند. در ارزیابی فاز سوم، موتور SmuFuzz به طور قطعی آسیب‌پذیری‌های بحرانی `CRASH_SMRAM_REDZONE_VIOLATION` (دسترسی بدون چک پوینتر) را در ماژول‌های `PcdPeim` و `UsbKbDxe` کشف کرد.
 
-اعضای تیم (Authors)
+در ارزیابی‌های گسترده‌تر بر روی ۳۱ فریمور مختلف، فریمورک SmuFuzz توانست 4.45x برابر Basic Block Coverage بیشتری نسبت به فازرهای مدرن نظیر RSFUZZER به دست آورد. همچنین، SmuFuzz موفق به کشف ۳۸ آسیب‌پذیری Memory Corruption جدید در فریمورهای توسعه‌یافته توسط Vendorهای بزرگ شد و نرخ خطای کاذب را به ۲۸٪ کاهش داد.
+
+## لینک‌های مرتبط (Related Links)
+
+* [SmuFuzz Source Code (GitHub) - Placeholder](https://www.google.com/search?q=https://github.com/SmuFuzz)
+* [EDK II / OVMF Repository](https://github.com/tianocore/edk2)
+* [LibAFL Fuzzing Framework](https://github.com/AFLplusplus/LibAFL)
+* [UEFITool & UEFIExtract](https://github.com/LongSoft/UEFITool)
+
+## اعضای تیم (Authors)
+
 The authors and implementers of this project are:
 
-@Amir Mohammad Rashidi (شماره دانشجویی: 401105967)
-
-@Mohammad Mahdi Shahadat (شماره دانشجویی: 402109742)
+* [@Amir Mohammad Rashidi](https://www.google.com/search?q=https://github.com/amir-rashidi) (شماره دانشجویی: 401105967)
+* [@Mohammad Mahdi Shahadat](https://www.google.com/search?q=https://github.com/MohammadMahdi-Shahadat) (شماره دانشجویی: 402109742)
