@@ -84,4 +84,4 @@ python3 phase3_fuzz/engine/fuzz_harness.py
 The authors and implementers of this project are:
 
 * [@Amir Mohammad Rashidi](https://www.google.com/search?q=https://github.com/amir-rashidi) (شماره دانشجویی: 401105967)
-* [@Mohammad Mahdi Shahadat](https://www.google.com/search?q=https://github.com/MohammadMahdi-Shahadat) (شماره دانشجویی: 402109742)
+* [@Mohammad Mahdi Shahadat](https://github.com/MohammadMahdi-Shahadat) (شماره دانشجویی: 402109742)
