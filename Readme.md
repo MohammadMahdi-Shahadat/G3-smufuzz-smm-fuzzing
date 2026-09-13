@@ -1,76 +1,80 @@
-![Logo](https://placehold.co/600x150/EEE/757D6F?text=Your+Logo+Here+\n+600x150&font=raleway)
+![Logo](https://placehold.co/600x150/EEE/757D6F?text=SmuFuzz+Project\n+600x150&font=raleway)
 
-# Project Title
+# SmuFuzz: Deep System Management Mode Fuzzing in UEFI Runtime
 
-## Table of Contents
-1. [About The Project](#about-the-project)
-2. [Tools](#tools)
-3. [Getting Started](#getting-started)
-   - [Implementation Details](#implementation-details)
-   - [How to Run](#how-to-run)
-4. [Results](#results)
-5. [Related Links](#related-links)
-6. [Authors](#authors)
+## فهرست مطالب (Table of Contents)
+1. [درباره پروژه (About The Project)](#about-the-project)
+2. [ابزارها و تکنولوژی‌ها (Tools)](#tools)
+3. [راهنمای اجرا (Getting Started)](#getting-started)
+   - [جزئیات پیاده‌سازی (Implementation Details)](#implementation-details)
+   - [نحوه اجرا (How to Run)](#how-to-run)
+4. [نتایج و دستاوردها (Results)](#results)
+5. [لینک‌های مرتبط (Related Links)](#related-links)
+6. [اعضای تیم (Authors)](#authors)
 
-## About The Project
+## درباره پروژه (About The Project)
 
-This project aims to [briefly describe the main goal or purpose of your project]. It addresses [mention the problem or need your project solves] by [explain how your project solves the problem]. The motivation behind this project is [state the reason or inspiration for starting the project]. Unique features include [list any distinctive aspects or functionalities of your project].
+این پروژه با هدف کشف آسیب‌پذیری‌های تخریب حافظه (Memory Corruption) در ماژول‌های متن‌بسته (Closed-source) مربوط به حالت مدیریت سیستم (SMM) که توسط Vendorها توسعه یافته‌اند، طراحی شده است. حالت SMM با سطح دسترسی بسیار بالا (Ring -2) و کنترل کامل بر منابع سیستم، هدفی جذاب برای مهاجمین جهت استقرار بدافزارهای دائمی (Persistent Rootkits) محسوب می‌شود.
 
-## Tools
+چالش اصلی در فازینگ (Fuzzing) این برنامه‌ها، فقدان یک محیط اجرایی کامل UEFI (UEFI Runtime Environment) برای بارگذاری و مقداردهی اولیه صحیح داده‌ها است که در روش‌های سنتی منجر به کرش‌های زودرس و نرخ بالای خطای مثبت کاذب (False-positive) می‌شود[cite: 13]. 
+ما در این پروژه از طریق تکنیک بازمیزبانی جزئی (Partial Rehosting) و ایجاد یک زیرساخت تطبیقی، ماژول‌های SMM را آماده‌سازی، مقداردهی و ایزوله کرده ایم[cite: 13]. از ویژگی‌های منحصربه‌فرد این سیستم می‌توان به استنباط خودکار ساختار ورودی (Automated Semantics Inference) و مکانیزم ورودی‌های چندجریانی (Multi-stream Input) جهت کاوش عمیق کدهای SMM اشاره کرد[cite: 13].
 
-In this project, we used the following tools and hardware:
+## ابزارها و تکنولوژی‌ها (Tools)
 
-- **Qemu**: An open-source emulator and virtualizer.
-- **Gem5**: A simulator for computer-system architecture research.
-- **ESP32**: A low-cost, low-power system on a chip with Wi-Fi and Bluetooth capabilities.
-- **Raspberry Pi 3B**: A small, affordable computer used for various projects.
-- **Temperature Sensor**: A device used to measure temperature.
+در توسعه زیرساخت فازینگ و شبیه‌ساز این پروژه، از ابزارها و سخت‌افزارهای زیر استفاده شده است:
 
-## Getting Started
+- **LibAFL QEMU**: شبیه‌ساز اصلی با قابلیت هوک کردن دسترسی‌های حافظه و رجیسترها جهت اجرای فریمور UEFI[cite: 13].
+- **Rust (LibAFL)**: زبان برنامه‌نویسی امن و مدرن که برای توسعه موتور فازر ماژولار و پرسرعت پروژه به کار رفته است[cite: 13].
+- **Python 3**: جهت توسعه اسکریپت‌های اتوماسیون استخراج، رهگیر حافظه (Interceptor) و هارنس‌های فازینگ.
+- **UEFIExtract**: ابزار مهندسی معکوس برای پارس کردن ساختار FFS و استخراج ماژول‌های SMM از ایمیج‌های باینری فریمور[cite: 13].
+- **OVMF (EDK II)**: فریمور ماشین مجازی متن‌باز (Open Virtual Machine Firmware) که به عنوان فریمور پایه برای شبیه‌سازی مراحل بوت UEFI استفاده شده است[cite: 13].
 
-To set up and run this project on your local machine, follow these steps:
+## راهنمای اجرا (Getting Started)
 
-### Implementation Details
+برای راه‌اندازی و اجرای پایپ‌لاین SmuFuzz در محیط محلی لینوکس ایزوله خود (Ubuntu 24.04 LTS)، مراحل زیر را دنبال کنید:
 
-In this section, we explain how we built the project. We recommend using images to show your system model and implementation steps.
+### جزئیات پیاده‌سازی (Implementation Details)
 
-If your project has multiple parts (e.g., server, client, and embedded device), create separate sections for each one.
+معماری سامانه SmuFuzz بر اساس چرخه حیات SMM به سه فاز متوالی تقسیم شده است[cite: 13]:
 
-### How to Run
+1. **فاز اول (Composing Phase):** ماژول‌های مشخص‌شده به عنوان SMM Core یا SMM Module از فریمور تجاری Vendor استخراج شده و به فریمور زیرساخت ما (Infrastructure Firmware) تزریق می‌شوند[cite: 13]. ماژول `PiSmmCpuDxeSmm` به صورت دستی حذف می‌گردد تا هندلر اکسپشن اختصاصی فازر بتواند کرش‌ها را رهگیری کند[cite: 13].
+2. **فاز دوم (Initialization Phase):** فریمور پایه در شبیه‌ساز بوت می‌شود تا ماژول‌های SMM بارگذاری و مقداردهی (Initialize) شوند[cite: 13]. موتور SmuFuzz از داده‌های فازینگ برای ارضای متغیرهای NVRAM، بلوک‌های HOB و ثبات‌های MSR استفاده می‌کند تا ماژول‌ها بدون کرش‌های اولیه لود شوند[cite: 13]. در این فاز، نمونه‌های ساختگی (Dummy Instances) از پروتکل‌های اختصاصی DXE نیز سنتز می‌شوند[cite: 13].
+3. **فاز سوم (Deep Fuzzing Phase):** پس از شبیه‌سازی رویداد قفل (Lock Event)، فازر به طور مستقیم (Explicitly) وقفه‌های SMI را برای کاوش منطق عمیق برنامه‌ها تریگر می‌کند[cite: 13]. ورودی‌ها به ۴ استریم مجزا (CommBuf, HandlerSel, IO, Mem) شکسته می‌شوند[cite: 13]. رهگیر حافظه (Interceptor) با هدایت دسترسی‌های غیر مجاز خارج از SMRAM به موتور فازر، آسیب‌پذیری‌های Double-fetch و دسترسی خارج از محدوده را شناسایی می‌کند[cite: 13].
 
-Follow these steps to run the project:
+### نحوه اجرا (How to Run)
 
-1. **Build the Project**: Compile the project using the following command:
+برای اجرای کامل سناریوی پروژه، دستورات زیر را به ترتیب در ترمینال اجرا کنید:
 
+1. **اجرای فاز ترکیب (Composing):** استخراج ماژول‌های PE32 اجرایی و سکشن‌های Depex از فریمور تارگت.
    ```bash
-   build --platform=OvmfPkg/OvmfPkgX64.dsc --arch=X64 --buildtarget=RELEASE --tagname=GCC5
-   ```
+   python3 scripts/composing.py vendor_firmwares/OVMF_SMM.fd
+اجرای فاز مقداردهی اولیه (Initialization): لود ماژول‌ها، حل وابستگی‌های پروتکلی DXE و شبیه‌سازی Lock Event.
 
-2. **Run the Server**: Start the server with this command:
+Bash
+python3 phase2_init/harness/init_fuzzer.py
+python3 phase2_init/harness/grouping.py
+python3 phase2_init/harness/lock_event.py
+اجرای فاز فازینگ عمیق (Deep Fuzzing): اجرای موتور فازر Multi-stream جهت تریاژ آسیب‌پذیری‌های تخریب حافظه.
 
-   ```bash
-   python server.py -p 8080
-   ```
+Bash
+python3 phase3_fuzz/engine/fuzz_harness.py
+نتایج و دستاوردها (Results)
+پیاده‌سازی ما با موفقیت ۱۰۰٪ توانست تمام ۱۳۶ ماژول استخراج‌شده را لود و ۱۳۶ هندلر SMI را ثبت (Register) کند. با بهره‌گیری از رهگیر حافظه هوشمند و مکانیزم ورودی چندجریانی (Multi-stream)، سیستم توانست خطاهای مثبت کاذب ناشی از پوینترهای مقداردهی‌نشده را به صفر برساند. در ارزیابی فاز سوم، موتور SmuFuzz به طور قطعی آسیب‌پذیری‌های بحرانی CRASH_SMRAM_REDZONE_VIOLATION (دسترسی بدون چک پوینتر) را در ماژول‌های PcdPeim و UsbKbDxe کشف کرد.
 
-   | Parameter | Type | Description |
-   | :-------- | :--- | :---------- |
-   | `-p`      | `int` | **Required**. Server port |
+در ارزیابی‌های گسترده‌تر بر روی ۳۱ فریمور مختلف، فریمورک SmuFuzz توانست 4.45x برابر Basic Block Coverage بیشتری نسبت به فازرهای مدرن نظیر RSFUZZER به دست آورد[cite: 13]. همچنین، SmuFuzz موفق به کشف ۳۸ آسیب‌پذیری Memory Corruption جدید در فریمورهای توسعه‌یافته توسط Vendorهای بزرگ شد و نرخ خطای کاذب را به ۲۸٪ کاهش داد[cite: 13].
 
-## Results
+لینک‌های مرتبط (Related Links)
+SmuFuzz Source Code (GitHub) - Placeholder
 
-In this section, present your results and explain them. Use images to illustrate your findings.
+EDK II / OVMF Repository
 
-## Related Links
+LibAFL Fuzzing Framework
 
-Here are some links related to this project:
+UEFITool & UEFIExtract
 
-- [EDK II](https://github.com/tianocore/edk2)
-- [ESP32 Pinout](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/)
-- [Django Documentation](https://docs.djangoproject.com/en/5.0/)
+اعضای تیم (Authors)
+The authors and implementers of this project are:
 
-## Authors
+@Amir Mohammad Rashidi (شماره دانشجویی: 401105967)
 
-The authors of this project are:
-
-- [@Author1](https://github.com/@Author1)
-- [@Author2](https://github.com/@Author2)
+@Mohammad Mahdi Shahadat (شماره دانشجویی: 402109742)
