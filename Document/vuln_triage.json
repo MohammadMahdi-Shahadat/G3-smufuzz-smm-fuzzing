@@ -1,0 +1,20 @@
+{
+    "total_verified_vulnerabilities": 2,
+    "vulnerability_class": "Unchecked Pointer Dereference / SMRAM Redzone Violation",
+    "findings": [
+        {
+            "id": "SMUFUZZ-VULN-001",
+            "module": "4_PcdPeim_3_PE32_image_section_6.efi",
+            "guid": "SMI_GUID_B059",
+            "subsystem": "PcdPeim",
+            "impact": "Information Disclosure / SMRAM Corruption"
+        },
+        {
+            "id": "SMUFUZZ-VULN-002",
+            "module": "94_UsbKbDxe_0_PE32_image_section_110.efi",
+            "guid": "SMI_GUID_FF57",
+            "subsystem": "UsbKbDxe",
+            "impact": "Arbitrary Code Execution in Ring -2"
+        }
+    ]
+}
