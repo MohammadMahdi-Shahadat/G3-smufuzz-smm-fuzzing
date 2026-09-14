@@ -67,20 +67,3 @@
 * **پیامد امنیتی:** پتانسیل تصاحب جریان اجرای کد در بالاترین سطح دسترسی سخت‌افزاری پردازنده (Ring -2).
 
 ---
-
-## 📂 ساختار مخزن (Repository Structure)
-
-```text
-├── Code/
-│   ├── phase1/              # اسکریپت‌های استخراج و تفکیک باینری فریمور
-│   ├── phase2_init/         # پیاده‌سازی Dummy DXE، گروه‌بندی و رویداد قفل
-│   └── phase3_fuzz/         # موتور فازینگ عمیق، رهگیر حافظه و ورودی چندجریانی
-│       ├── engine/
-│       │   ├── multi_stream.py
-│       │   ├── interceptor.py
-│       │   └── fuzz_harness.py
-│       ├── fuzz_summary.json
-│       └── vuln_triage.json
-├── Document/
-│   └── Final.pdf            # مستندات و گزارش جامع نهایی پروژه
-└── README.md
